@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+    <link rel="stylesheet" href="{% static 'accounts/style.css' %}">
+</head>
+<body>
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>message :</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+	<div class="main">
+        <div class="rightbox">
+			<div>
+			<div id="rh1"><h1>Hello!</h1></div>
+			<div id="rh3"> <h3>Enter your personal details<br> and startyour journey with us</h3></div>
+			</div>
+			<div class="signup"> 
+				<input type="button" value="sign up" name="signup" class="button">
+			</div>
+		</div>
+		<div class="leftbox">
+			<div id="lh1">
+				<h1>Sign in</h1>
+			</div>
+			<div class="speciallogin">
+				<img src="{% static 'accounts/images/fb.png' %}">
+				<img src="{% static 'accounts/images/logo (1).png' %}">
+				<img src="{% static 'accounts/images/tw.png' %}">
+			</div>
+			<span>or use your account</span>
+				<form action="" class="signinform" method="post">
+					{% csrf_token %}
+					<input type="email" class="email" placeholder="Enter your email">
+					<input type="password" class="password" placeholder="Password">
+					<div>
+						<input type="submit" value="Sign IN" placeholder="SIGN IN" class="button">
+					</div>
+				</form>
+			<span><h3>Forget your password</h3></span>
+			
+            <div class="createaccount">
+                <span class="crac">
+                    Don't have an account? <a href="{% url 'register' %}">Create your account</a>
+                </span>
+            </div>
+		</div>
+
+	</div>
+</body>
+</html>

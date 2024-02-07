@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'shoe/style.css' %}">
+
+    <title>TrueStep</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="rightnav">
+                <a href=""> MEN</a>
+                <a href=""> WOMEN</a>
+                <a href="">NEW ARRIVALS</a>
+            </div>
+            <div>
+                <img src="/clothing/static/clothing/images/T.png" alt="logo" class="logo">
+            </div>
+            <div class="rightnav">
+                <a href="">RETURN</a>
+                <a href="">STORES</a>
+            </div>
+        </div>
+=        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>message :</strong> {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+        <div class="middlepart">
+            <div class="tagline">
+                <h1>made form trees. designed for sun</h1>
+                <h5>shop shoes made with light & breexy eucalyptus tree fibre</h5>
+            </div>
+            <div class="shopsection">
+                <input type="button" name="shopmen" id="shopmen" value="shop men">
+                <input type="button" name="showwomen" id="showwomen" value="shop women">
+            </div>
+        </div>
+        <div class="content">
+            <p>Don't settle for ordinary shoes; step up your shoe game with [Your Shoe Store Name]. Explore our collection now and discover the perfect pair that speaks to your heart and soles!</p> 
+        </div>
+    </div>
+</body>
+</html>
